@@ -1,0 +1,169 @@
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dashboard{
+  min-height:100vh;
+  padding:40px;
+  background:linear-gradient(120deg,#f6f8ff,#eef1ff);
+  position:relative
+}
+
+/* Header */
+
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:30px;
+}
+
+.header h2{
+  color:#333;
+}
+
+/* Search */
+
+.search{
+  padding:10px 15px;
+  border-radius:6px;
+  border:1px solid #ccc;
+  width:220px;
+}
+
+.search:focus{
+  outline:none;
+  border-color:#667eea;
+}
+
+/* Grid */
+
+.posts-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+
+/* Card */
+
+.post-card{
+  background:white;
+  padding:22px;
+  border-radius:12px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  transition:0.3s;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.post-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 15px 35px rgba(0,0,0,0.15);
+}
+
+.card-header{
+  margin-bottom:10px;
+}
+
+.author{
+  font-size:12px;
+  color:#888;
+}
+
+.post-card h3{
+  font-size:18px;
+  margin-bottom:10px;
+  color:#333;
+}
+
+.post-card p{
+  color:#666;
+  font-size:14px;
+  line-height:1.5;
+  margin-bottom:15px;
+}
+
+.load-more-container{
+  text-align:center;
+  margin-top:30px;
+}
+
+.load-btn{
+  padding:10px 20px;
+  background:#667eea;
+  color:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  font-size:15px;
+}
+
+.load-btn:hover{
+  background:#5563d6;
+}
+
+
+.create-post{
+ margin-bottom:30px;
+ display:flex;
+ flex-direction:column;
+ gap:10px;
+}
+
+.create-post input,
+.create-post textarea{
+ padding:10px;
+ border-radius:6px;
+ border:1px solid #ccc;
+}
+
+.create-post button{
+ width:150px;
+ padding:10px;
+ background:#667eea;
+ color:white;
+ border:none;
+ border-radius:6px;
+ cursor:pointer;
+}
+
+.actions{
+ margin-top:10px;
+ display:flex;
+ gap:10px;
+}
+
+.actions button{
+ padding:6px 10px;
+ border:none;
+ border-radius:5px;
+ cursor:pointer;
+}
+
+.actions button:first-child{
+ background:#ffc107;
+}
+
+.actions button:last-child{
+ background:#dc3545;
+ color:white;
+}
+
+
+
+
+
+.logout-btn{
+ padding:8px 14px;
+ background:#dc3545;
+ color:white;
+ border:none;
+ border-radius:6px;
+ cursor:pointer;
+}
+
+.logout-btn:hover{
+ background:#c82333;
+}

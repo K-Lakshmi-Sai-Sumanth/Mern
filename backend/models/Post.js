@@ -4,7 +4,10 @@ const mongoose = require("mongoose")
 const PostSchema = new mongoose.Schema({
   title: String,
   body: String,
-  userId: Number
+  userId:{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:"User"
+  }
 }, { timestamps: true })
 
 PostSchema.index({ userId: 1 })

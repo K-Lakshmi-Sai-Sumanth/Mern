@@ -1,17 +1,24 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import {BrowserRouter,Routes,Route} from "react-router-dom"
-import Login from "./pages/Login"
-import Register from "./pages/Register"
-import Posts from "./pages/Posts"
+import { lazy, Suspense } from "react";
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
-export default function App(){
-return(
-<BrowserRouter>
-<Routes>
-<Route path="/" element={<Login/>}/>
-<Route path="/register" element={<Register/>}/>
-<Route path="/posts" element={<Posts/>}/>
-</Routes>
-</BrowserRouter>
-)
+export default function App() {
+  const Login = lazy(() => import("./pages/Login"));
+  const Register = lazy(() => import("./pages/Register"));
+  const Posts = lazy(() => import("./pages/Posts"));
+
+  return (
+    <BrowserRouter>
+      <Suspense fallback={<h2 style={{ textAlign: "center" }}>Loading...</h2>}>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/posts" element={<Posts />} />
+        </Routes>
+      </Suspense>
+      <ToastContainer position="top-right" autoClose={3000} />
+    </BrowserRouter>
+  );
 }

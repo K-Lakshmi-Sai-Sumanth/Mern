@@ -1,6 +1,7 @@
 import { useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
+import { toast } from "react-toastify"
 import "./Login.css"
 
 export default function Login(){
@@ -11,11 +12,11 @@ const [password,setPassword]=useState("")
 
 const login = async()=>{
   try{
-    const res = await axios.post("http://localhost:5000/api/auth/login",{email,password})
+    const res = await axios.post(`${import.meta.env.VITE_API_URL}/${import.meta.env.VITE_LOGIN_API}`,{email,password})
     localStorage.setItem("token",res.data.token)
     nav("/posts")
   }catch(err){
-    alert("Login failed")
+     toast.error("Login failed.")
   }
 }
 
@@ -42,6 +43,7 @@ return(
     />
 
     <button onClick={login}>Login</button>
+    <p style={{fontSize:"12px", color:'grey', marginTop:"10px"}}>If you don't have account please </p><span style={{cursor:"pointer", fontSize:"12px", color:'black', marginTop:"10px"}} onClick={()=>nav("./register")}> 👉 Register here.</span>
 
   </div>
 

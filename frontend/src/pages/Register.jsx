@@ -1,19 +1,26 @@
 import { useState } from "react"
 import axios from "axios"
 import "./Register.css"
+import { useNavigate } from "react-router-dom"
+import { toast } from "react-toastify"
 
 export default function Register(){
 
 const [name,setName]=useState("")
 const [email,setEmail]=useState("")
 const [password,setPassword]=useState("")
+const navigate = useNavigate();
 
 const register = async()=>{
   try{
-    await axios.post("http://localhost:5000/api/auth/register",{name,email,password})
-    alert("Registered successfully")
-  }catch(err){
-    alert("Registration failed")
+    await axios.post(`${import.meta.env.VITE_API_URL}/${import.meta.env.VITE_REGISTER_API}`,{name,email,password});
+    toast.success("Registered successfully.");
+    setName("");
+    setEmail("");
+    setPassword("");
+    navigate("/");
+  }catch(err){ 
+    toast.error("Registration failed.")
   }
 }
 
